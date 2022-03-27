@@ -1,8 +1,9 @@
 
 from copy import copy
+from time import time
 from PIL import Image
 
-image_path = "maze.png"
+image_path = "maze1.png"
 initial_point = (0, 199)
 
 
@@ -91,5 +92,8 @@ def show_result(path: list, image: list):
 
 
 bitarray = get_bitarray(image_path)
+t0 = time()
 path_to_goal = bsf(initial_point, bitarray)
+t1 = time()
+print(f'Laberinto resuelto en {t1-t0:.4f} segundos.')
 show_result(path_to_goal, bitarray)
